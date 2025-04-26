@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste de Tráfego</title>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+</head>
+<body>
+
+  <h1>Teste de Tráfego</h1>
+  <p>Ambiente seguro para testes de Pixel, formulário e comportamento de conversão.</p>
+
+  <form id="formTeste" onsubmit="enviarFormulario(event)">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="telefone">Telefone</label>
+    <input type="tel" id="telefone" name="telefone" required>
+
+    <button type="submit" class="btn btn-black">Enviar</button>
+  </form>
+
+  <button class="btn btn-outline" onclick="registrarEvento('BotaoSecundarioClick')">Botão Secundário</button>
+  <a href="https://wa.me/5522988065848" target="_blank" class="btn btn-whatsapp" onclick="registrarEvento('BotaoWhatsappClick')">Falar no WhatsApp</a>
+
+  <footer>
+    <p>Landing Page de Teste • Desenvolvida para validação de eventos </p><br>
+    <p> Feito pelo seu pai </p>
+  </footer>
+
+  <script>
+    function registrarEvento(nome) {
+      console.log("Evento de teste:", nome);
+      // fbq('trackCustom', nome); // Descomente ao integrar com Pixel
+    }
+
+    function enviarFormulario(event) {
+      event.preventDefault();
+      console.log("Formulário enviado!");
+      registrarEvento('FormularioEnviado');
+
+      // Você pode exibir uma mensagem de sucesso ou redirecionar aqui
+      alert("Dados enviados com sucesso!");
+      document.getElementById("formTeste").reset();
+    }
+  </script>
+<button type="submit" class="btn btn-black"> Página 2
+  <a href="pagina teste.html" target="_blank" class="btn btn-pag2"> </a>
+</button>
+
+</body>
+</html>
